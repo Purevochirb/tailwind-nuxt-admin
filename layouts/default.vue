@@ -1,20 +1,13 @@
 <template>
-  <main class="flex h-screen w-screen bg-slate-100">
-    <aside class="fixed h-full bg-white border-r border-gray-400" :style="`width: ${sidebarWidth}rem`">
-      sidebar
-    </aside>
-    <div
-      class="bg-green-200 w-full h-full"
-      :style="`margin-left: ${sidebarWidth}rem`"
-    >
-      <header class="bg-primary" :style="`height: ${headerHeight}rem`">
-        header
-      </header>
-      <div
-        class="bg-white"
-        :style="`height: calc(100vh - ${headerHeight}rem)`"
-      >
-        <Nuxt />
+  <main class="flex h-screen w-screen bg-slate-100 overflow-x-hidden">
+    <layout-sidebar :sidebarWidth="sidebarWidth" />
+    <div class="bg-green-200 w-full h-full md:ml-52 lg:ml-52 xl:ml-52">
+      <header class="bg-primary h-16 sticky top-0">header</header>
+      <div class="bg-white">
+        <div style="height: 2500px">
+          <custom-select :options="themeModes" />
+          <Nuxt />
+        </div>
       </div>
     </div>
   </main>
@@ -31,6 +24,14 @@ export default {
       type: Number,
       default: 4,
     },
+  },
+  data() {
+    return {
+      themeModes: [{ name: "light" }, { name: "semi dark" }, { name: "dark" }],
+      themeColors: [{ name: "purple" }, { name: "green" }, { name: "blue" }],
+      sidebarModes: ["hidden", "open", "mini"],
+      headerTypes: [{ name: "sticky" }, { name: "not-sticky" }],
+    };
   },
 };
 </script>

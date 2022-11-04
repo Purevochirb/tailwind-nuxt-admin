@@ -1,20 +1,26 @@
 <template>
-  <input
+  <button
     class="
       px-6
       text-xs
+      shadow-sm
       hover:shadow-md hover:opacity-90
       focus:outline-double
       uppercase
       mx-1
     "
     :class="[
+      variant === 'full' ? bgColor : '',
       outlineColor,
       height,
       borderRadius,
-      variant === 'outlined' ? `border border-gray-400 ` : 'shadow-md border border-gray-200',
+      variant === 'outlined'
+        ? `border ${borderColor} ${textColor}`
+        : 'text-white',
     ]"
-  />
+  >
+    <slot />
+  </button>
 </template>
 
 <script>
@@ -34,7 +40,7 @@ export default {
     },
     variant: {
       type: String,
-      default: "outlined", //full, outlined
+      default: "full", //full, outlined
     },
   },
   computed: {

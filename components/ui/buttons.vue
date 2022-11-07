@@ -1,51 +1,86 @@
 <template>
-  <main>
-    Buttons
-    <section>
-      <custom-button> Primary button </custom-button>
-      <custom-button color="secondary"> Secondary button </custom-button>
-      <custom-button color="success"> Success button </custom-button>
-      <custom-button color="warning"> Warning button </custom-button>
-      <custom-button color="danger"> Danger button </custom-button>
+  <main class="flex w-full">
+    <section class="border h-[40rem] w-[50%] flex items-center justify-center">
+      <custom-button
+        v-if="component === 'button'"
+        :variant="variant"
+        :size="size"
+        :color="color"
+        :disabled="disabled"
+        :rounded="roundSize"
+      >
+        button
+      </custom-button>
+      <custom-input
+        v-if="component === 'input'"
+        :variant="variant"
+        :size="size"
+        :color="color"
+        :disabled="disabled"
+        :rounded="roundSize"
+      >
+        button
+      </custom-input>
     </section>
-    <section class="mt-8">
-      <custom-button variant="outlined"> Primary button </custom-button>
-      <custom-button variant="outlined" color="secondary">
-        Outlined Secondary
-      </custom-button>
-      <custom-button variant="outlined" color="success">
-        Outlined Success button
-      </custom-button>
-      <custom-button variant="outlined" color="warning">
-        Outlined Warning button
-      </custom-button>
-      <custom-button variant="outlined" color="danger">
-        Outlined Danger button
-      </custom-button>
-    </section>
-    <section class="mt-8 flex">
-      <custom-button color="danger" size="small"> Small button </custom-button>
-      <custom-button color="danger" size="normal">
-        Normal button
-      </custom-button>
-      <custom-button color="danger" size="large"> Large button </custom-button>
-    </section>
-    <section class="mt-8 flex">
-      <custom-button color="secondary" rounded="small">
-        Small button
-      </custom-button>
-      <custom-button color="secondary" rounded="normal">
-        Normal button
-      </custom-button>
-      <custom-button variant="outlined" color="secondary" rounded="large">
-        Large button
-      </custom-button>
+    <section class="border w-[50%] p-8">
+      <select class="border" v-model="component">
+        <template v-for="item in components">
+          <option :key="item">
+            {{ item }}
+          </option>
+        </template>
+      </select>
+      <select class="border" v-model="variant">
+        <template v-for="item in variants">
+          <option :key="item">
+            {{ item }}
+          </option>
+        </template>
+      </select>
+      <select class="border" v-model="color">
+        <template v-for="item in colors">
+          <option :key="item">
+            {{ item }}
+          </option>
+        </template>
+      </select>
+      <select class="border" v-model="size">
+        <template v-for="item in sizes">
+          <option :key="item">
+            {{ item }}
+          </option>
+        </template>
+      </select>
+      <select class="border" v-model="roundSize">
+        <template v-for="item in roundSizes">
+          <option :key="item">
+            {{ item }}
+          </option>
+        </template>
+      </select>
+      <input type="checkbox" v-model="disabled" />
     </section>
   </main>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      component: "button",
+      components: ["button", "input"],
+      disabled: false,
+      variant: "solid",
+      variants: ["soft", "solid", "outlined", "plain"],
+      colors: ["primary", "secondary", "success", "warning", "danger"],
+      color: "primary",
+      sizes: ["small", "normal", "large"],
+      size: "normal",
+      roundSizes: ["small", "normal", "large"],
+      roundSize: "normal",
+    };
+  },
+};
 </script>
 
 <style>

@@ -1,6 +1,6 @@
 <template>
   <main>
-    Inputs
+    <!-- Inputs
     <section>
       <custom-input />
       <custom-input color="secondary" />
@@ -14,7 +14,7 @@
       <custom-input variant="full" color="success" />
       <custom-input variant="full" color="warning" />
       <custom-input variant="full" color="danger" />
-    </section>
+    </section> -->
   </main>
 </template>
 

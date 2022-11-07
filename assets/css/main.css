@@ -3,9 +3,23 @@
 @tailwind utilities;
 
 :root {
-    --color-primary: #477aaa;
+    --color-primary: #1761a7;
     --color-secondary: #b835a6;
-    --color-warning: #ebaa32;
+    --color-warning: #e6ab40;
     --color-success: #0ab43d;
     --color-danger: #fb5656;
+
+    --color-primarySoft: #b7dafc;
+    --color-secondarySoft: #e7c7e3;
+    --color-warningSoft: #f7e5c3;
+    --color-successSoft: #b8ebc7;
+    --color-dangerSoft: #e7c8c8;
+
+    --color-primaryDark: #124f88;
+    --color-secondaryDark: #6d1b62;
+    --color-warningDark: #b98d3a;
+    --color-successDark: #076122;
+    --color-dangerDark: #aa2727;
+
+
 }

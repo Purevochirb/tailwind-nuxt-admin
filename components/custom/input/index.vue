@@ -8,15 +8,10 @@
       uppercase
       mx-1
     "
-    :class="[
-      outlineColor,
-      height,
-      borderRadius,
-      variant === 'outlined' ? `border border-gray-400 ` : 'shadow-md border border-gray-200',
-    ]"
+    :class="[inputClass, outlineColor, height, borderRadius]"
   />
 </template>
-
+ 
 <script>
 export default {
   props: {
@@ -34,27 +29,43 @@ export default {
     },
     variant: {
       type: String,
-      default: "outlined", //full, outlined
+      default: "outlined", //solid, soft, plain, outlined
     },
   },
   computed: {
-    bgColor() {
-      return this.$getBackgroundColor(this.color);
-    },
-    textColor() {
-      return this.$getTextColor(this.color);
-    },
-    outlineColor() {
-      return this.$getOutlineColor(this.color);
+    inputClass() {
+      const classList = [];
+      switch (this.variant) {
+        case "solid":
+          classList.push(this.$getBackgroundColor(this.color));
+          classList.push(this.$getDarkHoverColor(this.color));
+          classList.push("text-white");
+          break;
+        case "soft":
+          classList.push(this.$getBackgroundSoftColor(this.color));
+          classList.push(this.$getHoverColor(this.color));
+          classList.push(this.$getTextColor(this.color));
+          classList.push("hover:text-white");
+          break;
+        case "plain":
+          classList.push(this.$getSoftHoverColor(this.color));
+          classList.push(this.$getTextColor(this.color));
+          break;
+        case "outlined":
+          classList.push(this.$getTextColor(this.color));
+          classList.push(this.$getSoftHoverColor(this.color));
+          classList.push("border");
+          classList.push(this.$getBorderColor(this.color));
+          break;
+      }
+      classList.push(this.$getOutlineColor(this.color));
+      return classList;
     },
     height() {
       return this.$getHeight(this.size);
     },
     borderRadius() {
       return this.$getBorderRadius(this.rounded);
-    },
-    borderColor() {
-      return this.$getBorderColor(this.color);
     },
   },
 };

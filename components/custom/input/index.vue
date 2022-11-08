@@ -1,20 +1,18 @@
 <template>
   <input
-    class="
-      px-6
-      text-xs
-      hover:shadow-md hover:opacity-90
-      focus:outline-double
-      uppercase
-      mx-1
-    "
-    :class="[inputClass, outlineColor, height, borderRadius]"
+    class="px-6 hover:shadow-md focus:outline-2 uppercase mx-1 placeholder:lowercase"
+    :placeHolder="placeHolder"
+    :class="[inputClass, outlineColor, height, borderRadius, textClass]"
   />
 </template>
  
 <script>
 export default {
   props: {
+    placeHolder: {
+      type: String,
+      default: "placeholder",
+    },
     color: {
       type: String,
       default: "primary",
@@ -38,22 +36,22 @@ export default {
       switch (this.variant) {
         case "solid":
           classList.push(this.$getBackgroundColor(this.color));
-          classList.push(this.$getDarkHoverColor(this.color));
+          // classList.push(this.$getDarkHoverColor(this.color));
           classList.push("text-white");
           break;
         case "soft":
           classList.push(this.$getBackgroundSoftColor(this.color));
-          classList.push(this.$getHoverColor(this.color));
+          // classList.push(this.$getHoverColor(this.color));
           classList.push(this.$getTextColor(this.color));
-          classList.push("hover:text-white");
+          // classList.push("hover:text-white");
           break;
         case "plain":
-          classList.push(this.$getSoftHoverColor(this.color));
+          // classList.push(this.$getSoftHoverColor(this.color));
           classList.push(this.$getTextColor(this.color));
           break;
         case "outlined":
           classList.push(this.$getTextColor(this.color));
-          classList.push(this.$getSoftHoverColor(this.color));
+          // classList.push(this.$getSoftHoverColor(this.color));
           classList.push("border");
           classList.push(this.$getBorderColor(this.color));
           break;
@@ -63,6 +61,9 @@ export default {
     },
     height() {
       return this.$getHeight(this.size);
+    },
+    textClass() {
+      return this.$getTextHeight(this.size);
     },
     borderRadius() {
       return this.$getBorderRadius(this.rounded);

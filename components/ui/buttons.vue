@@ -21,6 +21,16 @@
       >
         button
       </custom-input>
+      <custom-checkbox
+        v-if="component === 'checkbox'"
+        :variant="variant"
+        :size="size"
+        :color="color"
+        :disabled="disabled"
+        :rounded="roundSize"
+      >
+        button
+      </custom-checkbox>
     </section>
     <section class="border w-[50%] p-8">
       <select class="border" v-model="component">
@@ -58,7 +68,13 @@
           </option>
         </template>
       </select>
-      <input type="checkbox" v-model="disabled" />
+      <!-- <input type="checkbox" v-model="disabled" /> -->
+      <div class="mt-8">
+        <input type="checkbox" v-model="detail" />
+      </div>
+      <transition name="grow">
+        <div v-show="detail" class="h-40 w-40 bg-gray-500"></div>
+      </transition>
     </section>
   </main>
 </template>
@@ -67,12 +83,20 @@
 export default {
   data() {
     return {
-      component: "button",
-      components: ["button", "input"],
+      detail: false,
+      component: "checkbox",
+      components: ["button", "input", "checkbox"],
       disabled: false,
       variant: "solid",
       variants: ["soft", "solid", "outlined", "plain"],
-      colors: ["primary", "secondary", "success", "warning", "danger"],
+      colors: [
+        "primary",
+        "secondary",
+        "success",
+        "warning",
+        "danger",
+        "regular",
+      ],
       color: "primary",
       sizes: ["small", "normal", "large"],
       size: "normal",
@@ -84,4 +108,47 @@ export default {
 </script>
 
 <style>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+  scale: 120%;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
+.bounce-enter-active {
+  animation: bounce-in 0.5s;
+}
+.bounce-leave-active {
+  animation: bounce-in 0.5s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.grow-enter-active {
+  animation: grow-in 0.2s;
+}
+.grow-leave-active {
+  animation: grow-in 0.2s reverse;
+}
+@keyframes grow-in {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 100%;
+  }
+}
 </style>

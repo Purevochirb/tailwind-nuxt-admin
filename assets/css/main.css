@@ -8,18 +8,22 @@
     --color-warning: #e6ab40;
     --color-success: #0ab43d;
     --color-danger: #fb5656;
+    --color-regular: #777777;
+
 
     --color-primarySoft: #b7dafc;
     --color-secondarySoft: #e7c7e3;
     --color-warningSoft: #f7e5c3;
     --color-successSoft: #b8ebc7;
     --color-dangerSoft: #e7c8c8;
+    --color-regularSoft: #a7a7a7;
+
 
     --color-primaryDark: #124f88;
     --color-secondaryDark: #6d1b62;
     --color-warningDark: #b98d3a;
     --color-successDark: #076122;
     --color-dangerDark: #aa2727;
-
+    --color-regularDark: #444444;
 
 }

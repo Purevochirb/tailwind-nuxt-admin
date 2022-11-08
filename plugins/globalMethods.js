@@ -18,6 +18,9 @@ export default (context, inject) => {
             case "danger":
                 c = "bg-danger";
                 break;
+            case "regular":
+                c = "bg-regular";
+                break;
             default:
                 break;
         }
@@ -41,6 +44,9 @@ export default (context, inject) => {
                 break;
             case "danger":
                 c = "hover:bg-dangerDark";
+                break;
+            case "danger":
+                c = "hover:bg-regularDark";
                 break;
             default:
                 break;
@@ -66,6 +72,9 @@ export default (context, inject) => {
             case "danger":
                 c = "hover:bg-dangerSoft";
                 break;
+            case "regular":
+                c = "hover:bg-regularSoft";
+                break;
             default:
                 break;
         }
@@ -89,6 +98,9 @@ export default (context, inject) => {
                 break;
             case "danger":
                 c = "hover:bg-danger";
+                break;
+            case "regular":
+                c = "hover:bg-regular";
                 break;
             default:
                 break;
@@ -114,6 +126,9 @@ export default (context, inject) => {
             case "danger":
                 c = "bg-dangerSoft";
                 break;
+            case "regular":
+                c = "bg-regularSoft";
+                break;
             default:
                 break;
         }
@@ -138,6 +153,9 @@ export default (context, inject) => {
             case "danger":
                 c = "outline-danger";
                 break;
+            case "regular":
+                c = "outline-regular";
+                break;
             default:
                 break;
         }
@@ -155,6 +173,24 @@ export default (context, inject) => {
                 break;
             case "large":
                 h = "h-10";
+                break;
+            default:
+                break;
+        }
+        return h;
+    }
+
+    const getTextHeight = (color) => {
+        let h = ''
+        switch (color) {
+            case "small":
+                h = "text-xs";
+                break;
+            case "normal":
+                h = "text-sm";
+                break;
+            case "large":
+                h = "text-md";
                 break;
             default:
                 break;
@@ -197,6 +233,9 @@ export default (context, inject) => {
             case "danger":
                 c = "border-danger";
                 break;
+            case "regular":
+                c = "border-regular";
+                break;
             default:
                 break;
         }
@@ -221,6 +260,9 @@ export default (context, inject) => {
             case "danger":
                 c = "text-danger";
                 break;
+            case "regular":
+                c = "text-regular";
+                break;
             default:
                 break;
         }
@@ -232,13 +274,13 @@ export default (context, inject) => {
 
     inject('getBackgroundSoftColor', getBackgroundSoftColor)
     context.$getBackgroundSoftColor = getBackgroundSoftColor
-    
+
     inject('getSoftHoverColor', getSoftHoverColor)
     context.$getSoftHoverColor = getSoftHoverColor
 
     inject('getHoverColor', getHoverColor)
     context.$getHoverColor = getHoverColor
-    
+
 
     inject('getDarkHoverColor', getDarkHoverColor)
     context.$getDarkHoverColor = getDarkHoverColor
@@ -255,6 +297,9 @@ export default (context, inject) => {
 
     inject('getHeight', getHeight)
     context.$getHeight = getHeight
+
+    inject('getTextHeight', getTextHeight)
+    context.$getTextHeight = getTextHeight
 
     inject('getBorderColor', getBorderColor)
     context.$getBorderColor = getBorderColor

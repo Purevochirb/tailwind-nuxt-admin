@@ -3,7 +3,6 @@
     :disabled="disabled"
     class="
       px-6
-      text-xs
       shadow-sm
       focus:outline-double
       mx-1
@@ -12,7 +11,7 @@
       font-semibold
       disabled:cursor-not-allowed disabled:opacity-50
     "
-    :class="[buttonClass, height, borderRadius]"
+    :class="[buttonClass, height, borderRadius, textClass]"
   >
     {{ bgColor }}
     <slot />
@@ -44,13 +43,6 @@ export default {
   },
   computed: {
     buttonClass() {
-      //  hoverColor,
-      //     bgColor,
-      //     outlineColor,
-      //     height,
-      //     borderRadius,
-      //     textColor,
-      //     border,
       const classList = [];
       switch (this.variant) {
         case "solid":
@@ -83,6 +75,9 @@ export default {
     },
     borderRadius() {
       return this.$getBorderRadius(this.rounded);
+    },
+    textClass() {
+      return this.$getTextHeight(this.size);
     },
   },
 };

@@ -1,6 +1,13 @@
 <template>
   <input
-    class="px-6 hover:shadow-md focus:outline-2 uppercase mx-1 placeholder:lowercase"
+    class="
+      px-6
+      hover:shadow-md
+      focus:outline-2
+      uppercase
+      mx-1
+      placeholder:lowercase
+    "
     :placeHolder="placeHolder"
     :class="[inputClass, outlineColor, height, borderRadius, textClass]"
   />
@@ -38,6 +45,7 @@ export default {
           classList.push(this.$getBackgroundColor(this.color));
           // classList.push(this.$getDarkHoverColor(this.color));
           classList.push("text-white");
+          classList.push('placeholder:text-gray-400');
           break;
         case "soft":
           classList.push(this.$getBackgroundSoftColor(this.color));

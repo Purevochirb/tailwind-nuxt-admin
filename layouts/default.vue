@@ -2,10 +2,12 @@
   <main class="flex h-screen w-screen bg-slate-100 overflow-x-hidden">
     <layout-sidebar :sidebarWidth="sidebarWidth" />
     <div class="w-full h-full md:ml-52 lg:ml-52 xl:ml-52">
-      <layout-header/>
+      <layout-header />
       <!-- <div style="height: 2500px"> -->
       <!-- <custom-select :options="themeModes" /> -->
-      <Nuxt />
+      <Transition name="fade">
+        <Nuxt />
+      </Transition>
       <!-- </div> -->
     </div>
   </main>
@@ -35,4 +37,13 @@ export default {
 </script>
 
 <style>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
 </style>

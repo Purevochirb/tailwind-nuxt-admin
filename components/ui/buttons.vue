@@ -33,41 +33,61 @@
       </custom-checkbox>
     </section>
     <section class="border w-[50%] p-8">
-      <select class="border" v-model="component">
-        <template v-for="item in components">
-          <option :key="item">
-            {{ item }}
-          </option>
-        </template>
-      </select>
-      <select class="border" v-model="variant">
-        <template v-for="item in variants">
-          <option :key="item">
-            {{ item }}
-          </option>
-        </template>
-      </select>
-      <select class="border" v-model="color">
-        <template v-for="item in colors">
-          <option :key="item">
-            {{ item }}
-          </option>
-        </template>
-      </select>
-      <select class="border" v-model="size">
-        <template v-for="item in sizes">
-          <option :key="item">
-            {{ item }}
-          </option>
-        </template>
-      </select>
-      <select class="border" v-model="roundSize">
-        <template v-for="item in roundSizes">
-          <option :key="item">
-            {{ item }}
-          </option>
-        </template>
-      </select>
+      <div>
+        <label>Component</label>
+        <br />
+        <select class="border" v-model="component">
+          <template v-for="item in components">
+            <option :key="item">
+              {{ item }}
+            </option>
+          </template>
+        </select>
+      </div>
+      <div>
+        <label>Variant</label>
+        <br />
+        <select class="border" v-model="variant">
+          <template v-for="item in variants">
+            <option :key="item">
+              {{ item }}
+            </option>
+          </template>
+        </select>
+      </div>
+      <div>
+        <label>Color</label>
+        <br />
+        <select class="border" v-model="color">
+          <template v-for="item in colors">
+            <option :key="item">
+              {{ item }}
+            </option>
+          </template>
+        </select>
+      </div>
+      <div>
+        <label>Size</label>
+        <br />
+        <select class="border" v-model="size">
+          <template v-for="item in sizes">
+            <option :key="item">
+              {{ item }}
+            </option>
+          </template>
+        </select>
+      </div>
+      <div>
+        <label>Border radius</label>
+        <br />
+        <select class="border" v-model="roundSize">
+          <template v-for="item in roundSizes">
+            <option :key="item">
+              {{ item }}
+            </option>
+          </template>
+        </select>
+      </div>
       <!-- <input type="checkbox" v-model="disabled" /> -->
       <div class="mt-8">
         <input type="checkbox" v-model="detail" />

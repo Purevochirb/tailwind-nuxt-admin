@@ -1,16 +1,30 @@
 <template>
-  <main class="bg-white m-16 pb-16 px-8 pt-8">
+  <patro-paper>
     <section>
       <ui-buttons />
     </section>
     <section class="mt-8">
       <ui-inputs />
     </section>
-  </main>
+    <section>
+      <patro-button>hello</patro-button>
+      {{ stak }}
+      <patro-input v-model="stak"></patro-input>
+      {{ checkme }}
+      <patro-checkbox v-model="checkme"></patro-checkbox>
+    </section>
+  </patro-paper>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      checkme: true,
+      stak: '1'
+    };
+  },
+};
 </script>
 
 <style>

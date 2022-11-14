@@ -5,15 +5,14 @@
       px-6
       shadow-sm
       focus:outline-double
-      mx-1
       ease-in-out
       duration-100
       font-semibold
       disabled:cursor-not-allowed disabled:opacity-50
+      w-auto
     "
     :class="[buttonClass, height, borderRadius, textClass]"
   >
-    {{ bgColor }}
     <slot />
   </button>
 </template>
@@ -46,25 +45,31 @@ export default {
       const classList = [];
       switch (this.variant) {
         case "solid":
-          classList.push(this.$getBackgroundColor(this.color));
-          classList.push(this.$getDarkHoverColor(this.color));
           classList.push("text-white");
+          classList.push(this.$getBackgroundColor(this.color));
+          if (!this.disabled) {
+            classList.push(this.$getDarkHoverColor(this.color));
+          }
           break;
         case "soft":
           classList.push(this.$getBackgroundSoftColor(this.color));
-          classList.push(this.$getHoverColor(this.color));
+          if (!this.disabled) classList.push(this.$getHoverColor(this.color));
           classList.push(this.$getTextColor(this.color));
           classList.push("hover:text-white");
           break;
         case "plain":
-          classList.push(this.$getSoftHoverColor(this.color));
           classList.push(this.$getTextColor(this.color));
+          if (!this.disabled) {
+            classList.push(this.$getSoftHoverColor(this.color));
+          }
           break;
         case "outlined":
           classList.push(this.$getTextColor(this.color));
-          classList.push(this.$getSoftHoverColor(this.color));
           classList.push("border");
           classList.push(this.$getBorderColor(this.color));
+          if (!this.disabled) {
+            classList.push(this.$getSoftHoverColor(this.color));
+          }
           break;
       }
       classList.push(this.$getOutlineColor(this.color));

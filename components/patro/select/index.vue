@@ -29,7 +29,7 @@
           </template>
         </ul>
       </div>
-      <custom-input id="wtf" slot="reference" />
+      <patro-input id="wtf" slot="reference" />
     </popper>
   </div>
 </template>

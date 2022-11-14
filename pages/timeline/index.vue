@@ -1,5 +1,5 @@
 <template>
-  <div> timeline </div>
+  <patro-paper> timeline </patro-paper>
 </template>
 
 <script>

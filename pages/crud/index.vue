@@ -1,5 +1,5 @@
 <template>
-  <div> crud </div>
+  <patro-paper> crud </patro-paper>
 </template>
 
 <script>

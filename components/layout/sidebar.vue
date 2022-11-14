@@ -1,30 +1,44 @@
 <template>
-  <aside
-    class="
-      z-10
-      fixed
-      h-full
-      w-52
-      bg-slate-900
-      shadow-xl
-      border-r border-r-gray-400
-    "
-  >
-    <header class="h-16 bg-primary px-4 flex items-center justify-center">
+  <aside class="fixed h-full w-64 bg-primary z-20">
+    <header class="h-16 px-4 flex items-center justify-center">
       <p class="text-white text-sm">Welcome {{ userName }}!</p>
       <Camera @click="add()" color="var(--color-warning)" size="1rem" />
     </header>
-    <ul class="text-white overflow-auto">
+    <ul class="absolute text-white overflow-auto z-20 w-full">
+      <nuxt-link :to="'/dashboard'">
+        <li
+          :key="index"
+          class="cursor-pointer py-2 px-8 hover:bg-slate-100 hover:text-primary"
+        >
+        dashboard
+        </li>
+      </nuxt-link>
       <template v-for="(menu, index) in menus">
         <div :key="index">
-          <nuxt-link  :to="menu.path">
+          <nuxt-link :to="menu.path">
             <li
               :key="index"
-              class="cursor-pointer py-2 px-8 hover:bg-slate-600"
+              class="
+                cursor-pointer
+                py-2
+                px-8
+                hover:bg-slate-100 hover:text-primary
+              "
             >
               <div class="flex justify-between">
-                <span> {{ menu.name }} </span>
-                <span> <v-icon name="caret-down" class="alert" /> </span>
+                <div class="flex items-center">
+                  <Camera
+                    @click="add()"
+                    color="white"
+                    size="1rem"
+                    class="mr-2"
+                  />
+
+                  <span> {{ menu.name }} </span>
+                </div>
+                <span class="text-white" v-if="menu.child">
+                  <v-icon name="caret-down" class="text-white" />
+                </span>
               </div>
             </li>
           </nuxt-link>
@@ -43,6 +57,10 @@
         </div>
       </template>
     </ul>
+    <img
+      class="absolute bottom-0 z-10 opacity-25 h-[100vh] w-full"
+      src="sidebar.jpg"
+    />
   </aside>
 </template>
 
@@ -57,31 +75,31 @@ export default {
     menuss: {
       type: Array,
       default: [
-        { name: "Dashboard", path: "dashboard" },
-        { name: "Calendar", path: "calendar" },
-        { name: "Chat", path: "chat" },
-        { name: "Email", path: "email" },
-        { name: "Ecommerce", path: "ecommerce" },
-        { name: "File manager", path: "fileManager" },
+        { name: "Dashboard", path: "/dashboard" },
+        { name: "Calendar", path: "/calendar" },
+        { name: "Chat", path: "/chat" },
+        { name: "Email", path: "/email" },
+        { name: "Ecommerce", path: "/ecommerce" },
+        { name: "File manager", path: "/fileManager" },
         //pages
-        { name: "Profile", path: "profile" },
-        { name: "Pricing", path: "pricing" },
-        { name: "Invoice", path: "invoice" },
-        { name: "FAQ", path: "faq" },
-        { name: "TimeLine", path: "timeline" },
-        { name: "CRUD", path: "crud" },
-        { name: "Wizards", path: "wizard" },
-        { name: "Login", path: "login" },
-        { name: "Register", path: "register" },
-        { name: "Error page", path: "errorpage" },
+        { name: "Profile", path: "/profile" },
+        { name: "Pricing", path: "/pricing" },
+        { name: "Invoice", path: "/invoice" },
+        { name: "FAQ", path: "/faq" },
+        { name: "TimeLine", path: "/timeline" },
+        { name: "CRUD", path: "/crud" },
+        { name: "Wizards", path: "/wizard" },
+        { name: "Login", path: "/login" },
+        { name: "Register", path: "/register" },
+        { name: "Error page", path: "/errorpage" },
         //components
         {
           name: "Uicomponents",
-          path: "components",
+          path: "/components",
           child: [
-            { name: "Buttons", path: "errorpage" },
-            { name: "Checkboxes", path: "errorpage" },
-            { name: "Inputs", path: "errorpage" },
+            { name: "Buttons", path: "/components/buttons" },
+            { name: "Checkboxes", path: "/components/checkboxes" },
+            { name: "Inputs", path: "/components/inputs" },
           ],
         },
       ],

@@ -1,5 +1,5 @@
 <template>
-  <div> pricing </div>
+  <patro-paper> pricing </patro-paper>
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <div> Invoice </div>
+  <patro-paper> Invoice </patro-paper>
 </template>
 
 <script>

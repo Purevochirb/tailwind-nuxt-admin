@@ -1,5 +1,5 @@
 <template>
-  <div> ecommerce </div>
+  <patro-paper> ecommerce </patro-paper>
 </template>
 
 <script>

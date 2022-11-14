@@ -1,5 +1,5 @@
 <template>
-  <div> file manager </div>
+  <patro-paper> file manager </patro-paper>
 </template>
 
 <script>

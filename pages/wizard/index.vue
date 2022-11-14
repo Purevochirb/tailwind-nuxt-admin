@@ -1,5 +1,5 @@
 <template>
-  <div> wizard </div>
+  <patro-paper> wizard </patro-paper>
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <div>chat</div>
+  <patro-paper>chat</patro-paper>
 </template>
 
 <script>

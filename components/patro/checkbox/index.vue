@@ -3,7 +3,7 @@
     <div class="flex items-center mr-4">
       <span :class="[inputClass, height, borderRadius, 'absolute left-0 z-0 cursor-pointer']">
         <v-icon
-          v-show="check"
+          v-show="modelValue"
           name="check"
           :scale="checkmark"
           :class="textClass"
@@ -11,7 +11,7 @@
       </span>
       <input
         id="red-checkbox"
-        v-model="check"
+        v-model="modelValue"
         type="checkbox"
         :class="[inputClass, borderRadius, height, 'z-10 opacity-0 cursor-pointer']"
       />
@@ -49,6 +49,7 @@ export default {
     },
     value: {
       type: Boolean,
+      default: true
     },
   },
   data() {

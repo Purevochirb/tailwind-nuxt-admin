@@ -26,7 +26,7 @@ export default {
   plugins: [
     './plugins/globalMethods',
     './plugins/vueAwesome',
-
+    {src: '~/plugins/chart.js', mode: 'client'}
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

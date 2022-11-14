@@ -10,15 +10,18 @@
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.5.3",
+    "chart.js": "^3.9.1",
     "core-js": "^3.25.3",
     "gsap": "^3.11.3",
     "lucide-vue": "^0.100.0",
     "nuxt": "^2.15.8",
     "vue": "^2.7.10",
     "vue-awesome": "^4.5.0",
+    "vue-chartjs": "^4.1.2",
     "vue-popperjs": "^2.3.0",
     "vue-server-renderer": "^2.7.10",
-    "vue-template-compiler": "^2.7.10"
+    "vue-template-compiler": "^2.7.10",
+    "vue-wavify": "^1.2.2"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^5.3.3",

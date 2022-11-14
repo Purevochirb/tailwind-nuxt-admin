@@ -1,5 +1,5 @@
 <template>
-  <div> email </div>
+  <patro-paper> email </patro-paper>
 </template>
 
 <script>

@@ -1,7 +1,7 @@
 <template>
-  <div> 
+  <patro-paper> 
     calendar
-  </div>
+  </patro-paper>
 </template>
 
 <script>

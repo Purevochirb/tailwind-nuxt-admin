@@ -1,20 +1,27 @@
 <template>
-  <main class="flex h-screen w-screen bg-slate-100 overflow-x-hidden">
+  <main class="flex h-screen w-screen overflow-x-hidden bg-primary">
     <layout-sidebar :sidebarWidth="sidebarWidth" />
-    <div class="w-full h-full md:ml-52 lg:ml-52 xl:ml-52">
+    <div class="w-full h-full md:ml-64 lg:ml-64 xl:ml-64 z-10">
       <layout-header />
       <!-- <div style="height: 2500px"> -->
-      <!-- <custom-select :options="themeModes" /> -->
-      <Transition name="fade">
+      <!-- <patro-select :options="themeModes" /> -->
+      <Transition name="fades">
         <Nuxt />
       </Transition>
       <!-- </div> -->
     </div>
+    <!-- <div class="absolute bottom-0 w-[100vw]">
+        <vue-wavify fill="var(--color-primary)" />
+    </div> -->
   </main>
 </template>
 
 <script>
+import VueWavify from "vue-wavify";
+
 export default {
+  components: { VueWavify },
+
   props: {
     sidebarWidth: {
       type: Number,
@@ -37,13 +44,13 @@ export default {
 </script>
 
 <style>
-.fade-enter-active,
-.fade-leave-active {
+.fades-enter-active,
+.fades-leave-active {
   transition: opacity 0.5s ease;
 }
 
-.fade-enter-from,
-.fade-leave-to {
+.fades-enter-from,
+.fades-leave-to {
   opacity: 0;
 }
 </style>

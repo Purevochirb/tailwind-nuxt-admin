@@ -1,7 +1,7 @@
 <template>
   <main class="flex w-full">
     <section class="border h-[40rem] w-[50%] flex items-center justify-center">
-      <custom-button
+      <patro-button
         v-if="component === 'button'"
         :variant="variant"
         :size="size"
@@ -10,8 +10,8 @@
         :rounded="roundSize"
       >
         button
-      </custom-button>
-      <custom-input
+      </patro-button>
+      <patro-input
         v-if="component === 'input'"
         :variant="variant"
         :size="size"
@@ -20,8 +20,8 @@
         :rounded="roundSize"
       >
         button
-      </custom-input>
-      <custom-checkbox
+      </patro-input>
+      <patro-checkbox
         v-if="component === 'checkbox'"
         :variant="variant"
         :size="size"
@@ -30,7 +30,7 @@
         :rounded="roundSize"
       >
         button
-      </custom-checkbox>
+      </patro-checkbox>
     </section>
     <section class="border w-[50%] p-8">
       <div>

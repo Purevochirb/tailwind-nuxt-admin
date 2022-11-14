@@ -7,7 +7,10 @@
       uppercase
       mx-1
       placeholder:lowercase
+      disabled:cursor-not-allowed
+      disabled:opacity-70
     "
+    v-model="modelValue"
     :placeHolder="placeHolder"
     :class="[inputClass, outlineColor, height, borderRadius, textClass]"
   />
@@ -30,7 +33,7 @@ export default {
     },
     rounded: {
       type: String,
-      default: "small", //small, normal, large
+      default: "normal", //small, normal, large
     },
     variant: {
       type: String,
@@ -38,6 +41,14 @@ export default {
     },
   },
   computed: {
+    modelValue: {
+      get: function () {
+        return this.value;
+      },
+      set: function (val) {
+        this.$emit("input", val);
+      },
+    },
     inputClass() {
       const classList = [];
       switch (this.variant) {
@@ -45,7 +56,7 @@ export default {
           classList.push(this.$getBackgroundColor(this.color));
           // classList.push(this.$getDarkHoverColor(this.color));
           classList.push("text-white");
-          classList.push('placeholder:text-gray-400');
+          classList.push("placeholder:text-gray-400");
           break;
         case "soft":
           classList.push(this.$getBackgroundSoftColor(this.color));

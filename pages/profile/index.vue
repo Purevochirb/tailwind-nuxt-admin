@@ -1,5 +1,5 @@
 <template>
-  <div> profile </div>
+  <patro-paper> profile </patro-paper>
 </template>
 
 <script>

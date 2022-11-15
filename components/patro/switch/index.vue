@@ -7,14 +7,12 @@
           height,
           borderRadius,
           'absolute left-0 z-0 ',
-          { 'opacity-70': disabled }
+          { 'opacity-70': disabled },
         ]"
       >
-        <v-icon
-          v-show="modelValue"
-          name="check"
-          :scale="checkmark"
-          :class="textClass"
+        <div
+          class="bg-white rounded-full absolute ease-in-out duration-100 shadow-2xl"
+          :class="[checkmark, checkmarkTranslate]"
         />
       </span>
       <input
@@ -89,12 +87,16 @@ export default {
       const classList = [];
       switch (this.variant) {
         case "solid":
-          classList.push(this.$getBackgroundColor(this.color));
+          if (this.modelValue) {
+            classList.push(this.$getBackgroundColor(this.color));
+          }
           // classList.push(this.$getDarkHoverColor(this.color));
           classList.push("text-white");
           break;
         case "soft":
-          classList.push(this.$getBackgroundSoftColor(this.color));
+          if (this.modelValue) {
+            classList.push(this.$getBackgroundSoftColor(this.color));
+          }
           // classList.push(this.$getHoverColor(this.color));
           classList.push(this.$getTextColor(this.color));
           // classList.push("hover:text-white");
@@ -110,11 +112,24 @@ export default {
           classList.push(this.$getBorderColor(this.color));
           break;
       }
-      classList.push("flex justify-center items-center");
+      classList.push("flex items-center");
       classList.push(this.$getOutlineColor(this.color));
+      if (!this.modelValue) {
+        classList.push("bg-gray-400");
+      }
       return classList;
     },
     height() {
+      switch (this.size) {
+        case "small":
+          return "h-3 w-6";
+        case "normal":
+          return "h-4 w-8";
+        case "large":
+          return "h-6 w-12";
+      }
+    },
+    checkmark() {
       switch (this.size) {
         case "small":
           return "h-3 w-3";
@@ -124,14 +139,16 @@ export default {
           return "h-6 w-6";
       }
     },
-    checkmark() {
+    checkmarkTranslate() {
+      if(1===1 && this.modelValue)return 'translate-x-[100%]'
+      if(this.modelValue)
       switch (this.size) {
         case "small":
-          return "0.5";
+          return "translate-x-[100%]";
         case "normal":
-          return "0.7";
+          return "translate-x-6";
         case "large":
-          return "1";
+          return "translate-x-11";
       }
     },
     textClass() {
@@ -151,14 +168,7 @@ export default {
       return classList;
     },
     borderRadius() {
-      switch (this.rounded) {
-        case "small":
-          return "rounded-sm";
-        case "normal":
-          return "rounded-md";
-        case "large":
-          return "rounded-full";
-      }
+      return "rounded-full";
     },
   },
 };

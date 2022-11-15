@@ -10,7 +10,7 @@
           :key="index"
           class="cursor-pointer py-2 px-8 hover:bg-slate-100 hover:text-primary"
         >
-        dashboard
+          dashboard
         </li>
       </nuxt-link>
       <template v-for="(menu, index) in menus">
@@ -100,6 +100,7 @@ export default {
             { name: "Buttons", path: "/components/buttons" },
             { name: "Checkboxes", path: "/components/checkboxes" },
             { name: "Inputs", path: "/components/inputs" },
+            { name: "Switch", path: "/components/switch" },
           ],
         },
       ],

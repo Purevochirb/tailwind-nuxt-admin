@@ -11,8 +11,15 @@
         ]"
       >
         <div
-          class="bg-white rounded-full absolute ease-in-out duration-100 shadow-2xl"
-          :class="[checkmark, checkmarkTranslate]"
+          class="
+            rounded-full
+            absolute
+            ease-in-out
+            duration-100
+            shadow-2xl
+            scale-90
+          "
+          :class="[checkmarkClass, checkmark, checkmarkTranslate]"
         />
       </span>
       <input
@@ -44,6 +51,10 @@ export default {
       type: String,
       default: "placeholder",
     },
+    label: {
+      type: String,
+      default: "normal", //small, normal, large
+    },
     color: {
       type: String,
       default: "primary",
@@ -52,13 +63,9 @@ export default {
       type: String,
       default: "normal", //small, normal, large
     },
-    rounded: {
-      type: String,
-      default: "small", //small, normal, large
-    },
     variant: {
       type: String,
-      default: "outlined", //solid, soft, plain, outlined
+      default: "outlined", //solid, soft
     },
     value: {
       type: Boolean,
@@ -87,35 +94,36 @@ export default {
       const classList = [];
       switch (this.variant) {
         case "solid":
-          if (this.modelValue) {
+          if (!this.modelValue) {
+            classList.push("bg-gray-400");
+          } else {
             classList.push(this.$getBackgroundColor(this.color));
           }
-          // classList.push(this.$getDarkHoverColor(this.color));
-          classList.push("text-white");
           break;
         case "soft":
           if (this.modelValue) {
             classList.push(this.$getBackgroundSoftColor(this.color));
+          } else {
+            classList.push("bg-gray-300");
           }
-          // classList.push(this.$getHoverColor(this.color));
-          classList.push(this.$getTextColor(this.color));
-          // classList.push("hover:text-white");
-          break;
-        case "plain":
-          classList.push(this.$getSoftHoverColor(this.color));
-          // classList.push(this.$getTextColor(this.color));
-          break;
-        case "outlined":
-          classList.push(this.$getTextColor(this.color));
-          // classList.push(this.$getSoftHoverColor(this.color));
-          classList.push("border");
-          classList.push(this.$getBorderColor(this.color));
           break;
       }
-      classList.push("flex items-center");
-      classList.push(this.$getOutlineColor(this.color));
-      if (!this.modelValue) {
-        classList.push("bg-gray-400");
+      return classList;
+    },
+    checkmarkClass() {
+      const classList = [];
+      switch (this.variant) {
+        case "solid":
+          // classList.push(this.$getDarkHoverColor(this.color));
+          classList.push("bg-white");
+          break;
+        case "soft":
+          if (this.modelValue) {
+            classList.push(this.$getBackgroundColor(this.color));
+          } else {
+            classList.push("bg-white");
+          }
+          break;
       }
       return classList;
     },
@@ -140,16 +148,16 @@ export default {
       }
     },
     checkmarkTranslate() {
-      if(1===1 && this.modelValue)return 'translate-x-[100%]'
-      if(this.modelValue)
-      switch (this.size) {
-        case "small":
-          return "translate-x-[100%]";
-        case "normal":
-          return "translate-x-6";
-        case "large":
-          return "translate-x-11";
-      }
+      if (1 === 1 && this.modelValue) return "translate-x-[100%]";
+      if (this.modelValue)
+        switch (this.size) {
+          case "small":
+            return "translate-x-[100%]";
+          case "normal":
+            return "translate-x-6";
+          case "large":
+            return "translate-x-11";
+        }
     },
     textClass() {
       const classList = [];
@@ -158,7 +166,6 @@ export default {
           classList.push("text-white");
           break;
         case "soft":
-        case "plain":
         case "outlined":
           classList.push(this.$getTextColor(this.color));
           break;

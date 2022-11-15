@@ -31,36 +31,6 @@
       </div>
     </patro-card>
     <patro-card class="mb-4">
-      <p>outlined</p>
-      <div class="flex">
-        <div>
-          <patro-switch v-model="checked4" color="primary" variant="outlined"
-            >primary</patro-switch
-          >
-        </div>
-        <div>
-          <patro-switch v-model="checked5" color="secondary" variant="outlined"
-            >secondary</patro-switch
-          >
-        </div>
-        <div>
-          <patro-switch v-model="checked6" color="success" variant="outlined"
-            >success</patro-switch
-          >
-        </div>
-        <div>
-          <patro-switch v-model="checked7" color="warning" variant="outlined"
-            >warning</patro-switch
-          >
-        </div>
-        <div>
-          <patro-switch v-model="checked8" color="danger" variant="outlined"
-            >danger</patro-switch
-          >
-        </div>
-      </div>
-    </patro-card>
-    <patro-card class="mb-4">
       <p>Soft</p>
       <div class="flex">
         <div>
@@ -85,36 +55,6 @@
         </div>
         <div>
           <patro-switch v-model="checked13" color="danger" variant="soft"
-            >danger</patro-switch
-          >
-        </div>
-      </div>
-    </patro-card>
-    <patro-card class="mb-4">
-      <p>Plain</p>
-      <div class="flex">
-        <div>
-          <patro-switch v-model="checked14" color="primary" variant="plain"
-            >primary</patro-switch
-          >
-        </div>
-        <div>
-          <patro-switch v-model="checked15" color="secondary" variant="plain"
-            >secondary</patro-switch
-          >
-        </div>
-        <div>
-          <patro-switch v-model="checked16" color="success" variant="plain"
-            >success</patro-switch
-          >
-        </div>
-        <div>
-          <patro-switch v-model="checked17" color="warning" variant="plain"
-            >warning</patro-switch
-          >
-        </div>
-        <div>
-          <patro-switch v-model="checked18" color="danger" variant="plain"
             >danger</patro-switch
           >
         </div>
@@ -153,38 +93,6 @@
       </div>
     </patro-card>
     <patro-card class="mb-4">
-      <p>Border radius</p>
-      <div class="flex">
-        <div>
-          <patro-switch
-            v-model="checked22"
-            color="primary"
-            variant="outlined"
-            rounded="small"
-            >small</patro-switch
-          >
-        </div>
-        <div>
-          <patro-switch
-            v-model="checked23"
-            color="primary"
-            variant="outlined"
-            rounded="normal"
-            >Normal</patro-switch
-          >
-        </div>
-        <div>
-          <patro-switch
-            v-model="checked24"
-            color="primary"
-            variant="outlined"
-            rounded="large"
-            >Large</patro-switch
-          >
-        </div>
-      </div>
-    </patro-card>
-    <patro-card class="mb-4">
       <p>Disabled</p>
       <div class="flex">
         <div>
@@ -217,36 +125,6 @@
           >
         </div>
       </div>
-    </patro-card>
-    <patro-card class="mb-4">
-      <p>Groupping</p>
-      <patro-switchGroup>
-        <patro-switch
-          v-model="checked"
-          color="primary"
-          variant="outlined"
-        ></patro-switch>
-        <patro-switch
-          v-model="checked"
-          color="primary"
-          variant="outlined"
-        ></patro-switch>
-        <patro-switch
-          v-model="checked"
-          color="primary"
-          variant="outlined"
-        ></patro-switch>
-        <patro-switch
-          v-model="checked"
-          color="primary"
-          variant="outlined"
-        ></patro-switch>
-        <patro-switch
-          v-model="checked"
-          color="primary"
-          variant="outlined"
-        ></patro-switch>
-      </patro-switchGroup>
     </patro-card>
   </patro-paper>
 </template>
